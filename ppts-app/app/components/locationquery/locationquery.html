@@ -1,0 +1,110 @@
+<br><br>
+<div class="coontainer" >
+		<div class="col-md-2" ></div>
+		<div class="col-md-2" >
+			<div class="box box-info" >
+				<div class="box-header with-border" >
+					<h4>Search Sesions by : <br> Location , date and time</h4>
+
+				</div>
+				<form class="form-horizontal" ng-submit="search()" >
+				<div class="box-body" >
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Lattitude From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="lattitudestart" >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Lattitude To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="lattitudeend"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Longitude From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="longitudestart"   placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Longitude To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="longitudeend" placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Date From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="datestart"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Date text To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="dateend"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Time From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="timestart"  placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Time To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="timeend"  placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" ng-show="selectguard">						
+						<label  class="col-sm-6 control-label" > Guard session id </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="gsession"  >
+						</div>
+					</div>
+					<div class="form-group"  >						
+						<label  class="col-sm-6 control-label" > Provide guard session </label>
+						<div class="col-sm-6">
+						<input type="checkbox" ng-model="selectguard"  >
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+						<center>  <input type="submit" value="Search">  </center>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!-- Sesion list  -->
+		<div class="col-md-8" ng-show="showsessions" >
+			<div class="box" >
+				<div class="box-header" >
+					<center><h3>Found Sessions</h3></center>			
+				</div>
+				<div class="box-body" >
+					<table class="table table-bordered table-hover" >
+						<thead>
+							<th>GuardID</th>
+							<th>Guard Name</th>
+							<th>Session Id</th>
+							<th>Lattitude</th>
+							<th>Longitude</th>
+							<th>Arrival date and time </th>
+						</thead>
+						<tr ng-repeat="guardsession in sessions"  > 
+							<td> {{ guardsession.guard_id }} </td>
+							<td> {{ guardsession.guard_name }} </td> 
+							<td> {{ guardsession.token }} </td>
+							<td> {{ guardsession.lattitude }} </td>
+							<td> {{ guardsession.longitude }} </td>
+							<td> {{ guardsession.arivaldate  + ' '}} {{ guardsession.arivaltime }} </td>
+						</tr>					
+					</table>
+				</div>			
+			</div>			
+		</div>	
+</div>
+
+
+<br><br><br><br>

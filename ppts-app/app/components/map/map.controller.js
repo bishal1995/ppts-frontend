@@ -29,7 +29,7 @@ pptscontrolcenter.controller('MapCtrl', ['$scope', "uiGmapGoogleMapApi",
               }
             }
           }
-          console.log('Hello rascal');
+          console.log('Hello officer');
         });
       }]);
 

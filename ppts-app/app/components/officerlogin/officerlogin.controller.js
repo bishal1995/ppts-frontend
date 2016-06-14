@@ -12,7 +12,8 @@ pptscontrolcenter.controller('LoginCtrl', ['$scope','$http','UserState','$locati
 			$scope.BasicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
 			$scope.headers = {
 				'Authorization' : $scope.BasicAuth,
-				'timestamp' : '2010-05-12 04:50:36',
+				'cdate' : '2010-05-12',
+				'time' : '04:50:36',
 				'Content-Type': 'text/plain'
 			};
 			$scope.config = {
@@ -27,7 +28,6 @@ pptscontrolcenter.controller('LoginCtrl', ['$scope','$http','UserState','$locati
 						UserState.set_credentials($scope.UserCredentials);
 						console.log('User Logged Sucessfuly');
 						$location.path('/dashboard');
-
 					},
 					function(){
 						UserState.logout_User();

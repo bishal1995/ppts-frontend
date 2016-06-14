@@ -24,7 +24,24 @@ pptscontrolcenter.config(function($routeProvider){
 		})
 		.when('/test', {
 			templateUrl: 'app/components/test/test.html'
-		});	
+		})
+		.when('/search', {
+			templateUrl: 'app/components/searchguard/searchguard.html',
+			controller: 'SearchCtrl'
+		})
+		.when('/lastsession', {
+			templateUrl: 'app/components/lastsession/lastsession.html',
+			controller: 'LastsessionCtrl'
+		})
+		.when('/sessionquery', {
+			templateUrl: 'app/components/sessionquery/sessionquery.html',
+			controller: 'SessionqueryCtrl'
+		})
+		.when('/locationquery', {
+			templateUrl: 'app/components/locationquery/locationquery.html',
+			controller: 'LocationqueryCtrl'
+		})
+		;	
 });
 
 

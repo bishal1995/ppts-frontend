@@ -1,0 +1,107 @@
+<br><br>
+<div class="coontainer" >
+		<div class="col-md-2" ></div>
+		<div class="col-md-2" >
+			<div class="box box-info" >
+				<div class="box-header with-border" >
+					<h4>Search Sesions by : <br> Session date and time</h4>
+				</div>
+				<form class="form-horizontal" ng-submit="search()" >
+				<div class="box-body" >
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Login text From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logindatestart" >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Login text To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logindateend"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Login Time From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logintimestart"   placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Login Time To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logintimeend" placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Logout text From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logoutdatestart"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Logout text To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logoutdateend"  >
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Logout Time From : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logouttimestart"  placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" >						
+						<label  class="col-sm-6 control-label" > Logout Time To : </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="logouttimeend"  placeholder="eg: 23:12:24 ">
+						</div>
+					</div>
+					<div class="form-group" ng-show="selectguard">						
+						<label  class="col-sm-6 control-label" > Guard_id </label>
+						<div class="col-sm-6">
+						<input type="text" class="form-control" ng-model="guard"  >
+						</div>
+					</div>
+					<div class="form-group"  >						
+						<label  class="col-sm-6 control-label" > Provide guard ID </label>
+						<div class="col-sm-6">
+						<input type="checkbox" ng-model="selectguard"  >
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+						<center>  <input type="submit" value="Search">  </center>
+				</div>
+				</form>
+			</div>
+		</div>
+		<!-- Sesion list  -->
+		<div class="col-md-8" ng-show="showsessions" >
+			<div class="box" >
+				<div class="box-header" >
+					<center><h3>Found Sessions</h3></center>			
+				</div>
+				<div class="box-body" >
+					<table class="table table-bordered table-hover" >
+						<thead>
+							<th>Guard Id</th>
+							<th>Guard name</th>
+							<th>Session</th>
+							<th>Login</th>
+							<th>Logout</th>
+						</thead>
+						<tr ng-repeat="guardsession in sessions"  >  
+							<td> {{ guardsession.guard_id }} </td>
+							<td> {{ guardsession.guard_name }} </td>
+							<td> {{ guardsession.token }} </td>
+							<td> Date : {{ guardsession.logindate }},Time : {{ guardsession.logintime }} </td>
+							<td> Date : {{ guardsession.logoutdate }},Time : {{ guardsession.logouttime }} </td>
+						</tr>					
+					</table>
+				</div>			
+			</div>			
+		</div>	
+</div>
+
+
+<br><br><br><br>
