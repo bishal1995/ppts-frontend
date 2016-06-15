@@ -1,0 +1,39 @@
+<br>
+<div class="container" ng-hide="displaymap" >
+	<div class="row" >
+		
+		<div class="col-md-3" ></div>
+		<div class="col-md-6" >
+			<div class="box box-info" >
+				<div class="box-header with-border" >
+					<h3> Enter session ID to trace activity</h3>
+				</div>
+					<form class="form-horizontal" ng-submit="search()" >
+					<div class="box-body" >
+						<div class="form-group" >						
+							<label  class="col-sm-3 control-label" > Session ID : </label>
+							<div class="col-sm-9">
+							<input type="text" class="form-control" ng-model="sessionID" >
+							</div>
+						</div>
+					</div>
+					<div class="box-footer">
+						<center>  <input type="submit" value="Search">  </center>
+					</div>
+					</form>
+			</div>
+		</div>
+		<div class="col-md-3" ></div>
+	</div>	
+</div>
+
+	
+	<div class="row" >
+			<div id="map_canvas" >
+			    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+			        <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible'
+			                  geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
+			    </ui-gmap-google-map>
+			</div>
+	</div>
+

@@ -41,6 +41,10 @@ pptscontrolcenter.config(function($routeProvider){
 			templateUrl: 'app/components/locationquery/locationquery.html',
 			controller: 'LocationqueryCtrl'
 		})
+		.when('/traceroute', {
+			templateUrl: 'app/components/polyline/polyline.html',
+			controller: 'PolylineCtrl'
+		})
 		;	
 });
 
