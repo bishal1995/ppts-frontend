@@ -4,46 +4,133 @@ pptscontrolcenter.config(function($routeProvider){
 	$routeProvider
 		.when('/officerlogin', {
 			templateUrl: 'app/components/officerlogin/officerlogin.html',
-			controller : 'LoginCtrl'
+			controller : 'LoginCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/controlpannel', {
 			templateUrl: 'app/components/controlpannel/controlpannel.html',
-			controller : 'ControlPannelCtrl'
-		})
-		.when('/dashboard', {
-			templateUrl: 'app/components/dashboard/dashboard.html',
-			controller : 'DashBoardCtrl'
+			controller : 'ControlPannelCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/footer', {
 			templateUrl: 'app/components/footer/footer.html',
-			controller: 'FooterCtrl'
+			controller: 'FooterCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/map', {
 			templateUrl: 'app/components/map/map.html',
-			controller: 'MapCtrl'
+			controller: 'MapCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/test', {
-			templateUrl: 'app/components/test/test.html'
+			templateUrl: 'app/components/test/test.html',
+			controller : 'TestCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/search', {
 			templateUrl: 'app/components/searchguard/searchguard.html',
-			controller: 'SearchCtrl'
+			controller: 'SearchCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/lastsession', {
 			templateUrl: 'app/components/lastsession/lastsession.html',
-			controller: 'LastsessionCtrl'
+			controller: 'LastsessionCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/sessionquery', {
 			templateUrl: 'app/components/sessionquery/sessionquery.html',
-			controller: 'SessionqueryCtrl'
+			controller: 'SessionqueryCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/locationquery', {
 			templateUrl: 'app/components/locationquery/locationquery.html',
-			controller: 'LocationqueryCtrl'
+			controller: 'LocationqueryCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		.when('/traceroute', {
 			templateUrl: 'app/components/polyline/polyline.html',
-			controller: 'PolylineCtrl'
+			controller: 'PolylineCtrl',
+			resolve : {
+				"check" : function(UserState,$location){
+					if( UserState.islogged() ){
+						// He is authenticated, cannot do any thing 
+					}else{
+						$location.path('/officerlogin')
+					}
+				}
+			}
 		})
 		;	
 });

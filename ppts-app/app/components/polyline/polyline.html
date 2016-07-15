@@ -28,12 +28,36 @@
 </div>
 
 	
-	<div class="row" >
-			<div id="map_canvas" >
-			    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
-			        <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible'
-			                  geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'></ui-gmap-polyline>
-			    </ui-gmap-google-map>
-			</div>
-	</div>
+<div class="row" >
+		<div id="map_canvas" >
+		    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+		        <ui-gmap-polyline ng-repeat="p in polylines" path="p.path" stroke="p.stroke" visible='p.visible'
+		                  geodesic='p.geodesic' fit="false" editable="p.editable" draggable="p.draggable" icons='p.icons'>
+		                  	
+              	</ui-gmap-polyline>
+
+      <ui-gmap-markers models="markers" idKey="'id'" coords="'coords'" events="markersEvents">
+      </ui-gmap-markers>
+
+
+
+
+
+<!--
+       	        <ui-gmap-marker ng-repeat="m in markers" coords="m.coords" icon="m.icon" idkey="m.id" events="markersEvents">
+       	        </ui-gmap-marker>
+-->
+		      <ui-gmap-window 
+		      show="windows.show" 
+		      coords="windows.model.coords" 
+		      templateUrl="'app/components/polyline/template.tpl'" 
+		      templateParameter="windows.model" 
+		      options="windows.options"
+		      ng-cloak>
+		      </ui-gmap-window>
+
+
+		    </ui-gmap-google-map>
+		</div>
+</div>
 

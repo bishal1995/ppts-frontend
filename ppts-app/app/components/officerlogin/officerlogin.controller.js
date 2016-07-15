@@ -5,6 +5,10 @@ pptscontrolcenter.controller('LoginCtrl', ['$scope','$http','UserState','$locati
 		this.username = "";
 		this.password = "";
 		$scope.login = function(){
+			$scope.timestamp = new Date();
+			$scope.datetime = $scope.timestamp.toISOString();
+			$scope.cdate = $scope.datetime.substring(0,10);
+			$scope.time = $scope.datetime.substring(11,19);
 			$scope.UserCredentials = {
 				'username' : this.username,
 				'password' : this.password
@@ -12,8 +16,8 @@ pptscontrolcenter.controller('LoginCtrl', ['$scope','$http','UserState','$locati
 			$scope.BasicAuth = 'Basic ' + btoa(this.username + ':' + this.password);
 			$scope.headers = {
 				'Authorization' : $scope.BasicAuth,
-				'cdate' : '2010-05-12',
-				'time' : '04:50:36',
+				'cdate' : $scope.cdate ,
+				'time' : $scope.time ,
 				'Content-Type': 'text/plain'
 			};
 			$scope.config = {
@@ -27,7 +31,9 @@ pptscontrolcenter.controller('LoginCtrl', ['$scope','$http','UserState','$locati
 						UserState.set_UserToken(response.headers('session_id'));
 						UserState.set_credentials($scope.UserCredentials);
 						console.log('User Logged Sucessfuly');
-						$location.path('/dashboard');
+						$location.path('/search');
+
+
 					},
 					function(){
 						UserState.logout_User();
